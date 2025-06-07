@@ -40,8 +40,8 @@ std::string infx2pstfx(const std::string& inf) {
             }
             ++i;
         } else {
-            while (!opStack.isEmpty() 
-            && getPriority(opStack.top()) 
+            while (!opStack.isEmpty()
+            && getPriority(opStack.top())
             >= getPriority(inf[i])) {
                 out += opStack.pop();
                 out += ' ';
@@ -55,7 +55,6 @@ std::string infx2pstfx(const std::string& inf) {
         out += opStack.pop();
         out += ' ';
     }
-    
     if (!out.empty() && out.back() == ' ') {
     out.pop_back();
     }
