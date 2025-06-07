@@ -55,7 +55,11 @@ std::string infx2pstfx(const std::string& inf) {
         out += opStack.pop();
         out += ' ';
     }
-
+    
+    if (!out.empty() && out.back() == ' ') {
+    out.pop_back();
+    }
+    
     return out;
 }
 
