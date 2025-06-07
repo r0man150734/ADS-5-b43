@@ -26,7 +26,7 @@ std::string infx2pstfx(const std::string& inf) {
             while (i < inf.length() && isdigit(inf[i])) {
                 out += inf[i++];
             }
-            out += ' ';  
+            out += ' ';
         } else if (inf[i] == '(') {
             opStack.push('(');
             ++i;
@@ -36,11 +36,13 @@ std::string infx2pstfx(const std::string& inf) {
                 out += ' ';
             }
             if (!opStack.isEmpty() && opStack.top() == '(') {
-                opStack.pop(); 
+                opStack.pop();
             }
             ++i;
         } else {
-            while (!opStack.isEmpty() && getPriority(opStack.top()) >= getPriority(inf[i])) {
+            while (!opStack.isEmpty()
+            && getPriority(opStack.top())
+            >= getPriority(inf[i])) {
                 out += opStack.pop();
                 out += ' ';
             }
@@ -72,7 +74,7 @@ int eval(const std::string& pstfx) {
                 case '+': stack.push(a + b); break;
                 case '-': stack.push(a - b); break;
                 case '*': stack.push(a * b); break;
-                case '/': stack.push(a / b); break;  
+                case '/': stack.push(a / b); break;
             }
         }
     }
